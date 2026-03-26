@@ -28,12 +28,213 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            btn7 = new Button();
+            btn8 = new Button();
+            btn9 = new Button();
+            btn4 = new Button();
+            btn5 = new Button();
+            btn6 = new Button();
+            btn1 = new Button();
+            btn2 = new Button();
+            btn3 = new Button();
+            btn0 = new Button();
+            txtResult = new TextBox();
+            txtExpression = new TextBox();
+            btnEqual = new Button();
+            btnPlus = new Button();
+            lblTitle = new Label();
+            SuspendLayout();
+            // 
+            // btn7
+            // 
+            btn7.Location = new Point(206, 189);
+            btn7.Name = "btn7";
+            btn7.Size = new Size(112, 50);
+            btn7.TabIndex = 0;
+            btn7.Text = "7";
+            btn7.UseVisualStyleBackColor = true;
+            btn7.Click += btnNumber_Click;
+            // 
+            // btn8
+            // 
+            btn8.Location = new Point(324, 189);
+            btn8.Name = "btn8";
+            btn8.Size = new Size(112, 50);
+            btn8.TabIndex = 1;
+            btn8.Text = "8";
+            btn8.UseVisualStyleBackColor = true;
+            btn8.Click += btnNumber_Click;
+            // 
+            // btn9
+            // 
+            btn9.Location = new Point(442, 189);
+            btn9.Name = "btn9";
+            btn9.Size = new Size(112, 50);
+            btn9.TabIndex = 2;
+            btn9.Text = "9";
+            btn9.UseVisualStyleBackColor = true;
+            btn9.Click += btnNumber_Click;
+            // 
+            // btn4
+            // 
+            btn4.Location = new Point(206, 245);
+            btn4.Name = "btn4";
+            btn4.Size = new Size(112, 50);
+            btn4.TabIndex = 3;
+            btn4.Text = "4";
+            btn4.UseVisualStyleBackColor = true;
+            btn4.Click += btnNumber_Click;
+            // 
+            // btn5
+            // 
+            btn5.Location = new Point(324, 245);
+            btn5.Name = "btn5";
+            btn5.Size = new Size(112, 50);
+            btn5.TabIndex = 4;
+            btn5.Text = "5";
+            btn5.UseVisualStyleBackColor = true;
+            btn5.Click += btnNumber_Click;
+            // 
+            // btn6
+            // 
+            btn6.Location = new Point(442, 245);
+            btn6.Name = "btn6";
+            btn6.Size = new Size(112, 50);
+            btn6.TabIndex = 5;
+            btn6.Text = "6";
+            btn6.UseVisualStyleBackColor = true;
+            btn6.Click += btnNumber_Click;
+            // 
+            // btn1
+            // 
+            btn1.Location = new Point(206, 301);
+            btn1.Name = "btn1";
+            btn1.Size = new Size(112, 50);
+            btn1.TabIndex = 6;
+            btn1.Text = "1";
+            btn1.UseVisualStyleBackColor = true;
+            btn1.Click += btnNumber_Click;
+            // 
+            // btn2
+            // 
+            btn2.Location = new Point(324, 301);
+            btn2.Name = "btn2";
+            btn2.Size = new Size(112, 50);
+            btn2.TabIndex = 7;
+            btn2.Text = "2";
+            btn2.UseVisualStyleBackColor = true;
+            btn2.Click += btnNumber_Click;
+            // 
+            // btn3
+            // 
+            btn3.Location = new Point(442, 301);
+            btn3.Name = "btn3";
+            btn3.Size = new Size(112, 50);
+            btn3.TabIndex = 8;
+            btn3.Text = "3";
+            btn3.UseVisualStyleBackColor = true;
+            btn3.Click += btnNumber_Click;
+            // 
+            // btn0
+            // 
+            btn0.Location = new Point(324, 357);
+            btn0.Name = "btn0";
+            btn0.Size = new Size(112, 50);
+            btn0.TabIndex = 9;
+            btn0.Text = "0";
+            btn0.UseVisualStyleBackColor = true;
+            btn0.Click += btnNumber_Click;
+            // 
+            // txtResult
+            // 
+            txtResult.Location = new Point(206, 124);
+            txtResult.Name = "txtResult";
+            txtResult.Size = new Size(348, 31);
+            txtResult.TabIndex = 10;
+            // 
+            // txtExpression
+            // 
+            txtExpression.Location = new Point(206, 87);
+            txtExpression.Name = "txtExpression";
+            txtExpression.Size = new Size(348, 31);
+            txtExpression.TabIndex = 11;
+            // 
+            // btnEqual
+            // 
+            btnEqual.Location = new Point(560, 357);
+            btnEqual.Name = "btnEqual";
+            btnEqual.Size = new Size(112, 50);
+            btnEqual.TabIndex = 12;
+            btnEqual.Text = "=";
+            btnEqual.UseVisualStyleBackColor = true;
+            btnEqual.Click += btnEqual_Click;
+            // 
+            // btnPlus
+            // 
+            btnPlus.Location = new Point(560, 301);
+            btnPlus.Name = "btnPlus";
+            btnPlus.Size = new Size(112, 50);
+            btnPlus.TabIndex = 13;
+            btnPlus.Text = "+";
+            btnPlus.UseVisualStyleBackColor = true;
+            btnPlus.Click += btnPlus_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = SystemColors.ActiveCaption;
+            lblTitle.Location = new Point(206, 30);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(338, 43);
+            lblTitle.TabIndex = 14;
+            lblTitle.Text = "Simple Calculator\r\n";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblTitle);
+            Controls.Add(btnPlus);
+            Controls.Add(btnEqual);
+            Controls.Add(txtExpression);
+            Controls.Add(txtResult);
+            Controls.Add(btn0);
+            Controls.Add(btn3);
+            Controls.Add(btn2);
+            Controls.Add(btn1);
+            Controls.Add(btn6);
+            Controls.Add(btn5);
+            Controls.Add(btn4);
+            Controls.Add(btn9);
+            Controls.Add(btn8);
+            Controls.Add(btn7);
+            ForeColor = SystemColors.ControlText;
+            Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btn7;
+        private Button btn8;
+        private Button btn9;
+        private Button btn4;
+        private Button btn5;
+        private Button btn6;
+        private Button btn1;
+        private Button btn2;
+        private Button btn3;
+        private Button btn0;
+        private TextBox txtResult;
+        private TextBox txtExpression;
+        private Button btnEqual;
+        private Button btnPlus;
+        private Label lblTitle;
     }
 }
