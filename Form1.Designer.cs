@@ -43,6 +43,9 @@
             btnEqual = new Button();
             btnPlus = new Button();
             lblTitle = new Label();
+            btnMulti = new Button();
+            btnDiv = new Button();
+            btnMinus = new Button();
             SuspendLayout();
             // 
             // btn7
@@ -147,14 +150,14 @@
             // 
             // txtResult
             // 
-            txtResult.Location = new Point(206, 124);
+            txtResult.Location = new Point(206, 101);
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(348, 31);
             txtResult.TabIndex = 10;
             // 
             // txtExpression
             // 
-            txtExpression.Location = new Point(206, 87);
+            txtExpression.Location = new Point(206, 64);
             txtExpression.Name = "txtExpression";
             txtExpression.Size = new Size(348, 31);
             txtExpression.TabIndex = 11;
@@ -177,18 +180,48 @@
             btnPlus.TabIndex = 13;
             btnPlus.Text = "+";
             btnPlus.UseVisualStyleBackColor = true;
-            btnPlus.Click += btnPlus_Click;
+            btnPlus.Click += btnOperator_Click;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = SystemColors.ActiveCaption;
-            lblTitle.Location = new Point(206, 30);
+            lblTitle.Location = new Point(206, 9);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(338, 43);
             lblTitle.TabIndex = 14;
             lblTitle.Text = "Simple Calculator\r\n";
+            // 
+            // btnMulti
+            // 
+            btnMulti.Location = new Point(560, 189);
+            btnMulti.Name = "btnMulti";
+            btnMulti.Size = new Size(112, 50);
+            btnMulti.TabIndex = 15;
+            btnMulti.Text = "X";
+            btnMulti.UseVisualStyleBackColor = true;
+            btnMulti.Click += btnOperator_Click;
+            // 
+            // btnDiv
+            // 
+            btnDiv.Location = new Point(560, 133);
+            btnDiv.Name = "btnDiv";
+            btnDiv.Size = new Size(112, 50);
+            btnDiv.TabIndex = 16;
+            btnDiv.Text = "÷";
+            btnDiv.UseVisualStyleBackColor = true;
+            btnDiv.Click += btnOperator_Click;
+            // 
+            // btnMinus
+            // 
+            btnMinus.Location = new Point(560, 245);
+            btnMinus.Name = "btnMinus";
+            btnMinus.Size = new Size(112, 50);
+            btnMinus.TabIndex = 17;
+            btnMinus.Text = "-";
+            btnMinus.UseVisualStyleBackColor = true;
+            btnMinus.Click += btnOperator_Click;
             // 
             // Form1
             // 
@@ -196,6 +229,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnMinus);
+            Controls.Add(btnDiv);
+            Controls.Add(btnMulti);
             Controls.Add(lblTitle);
             Controls.Add(btnPlus);
             Controls.Add(btnEqual);
@@ -236,5 +272,8 @@
         private Button btnEqual;
         private Button btnPlus;
         private Label lblTitle;
+        private Button btnMulti;
+        private Button btnDiv;
+        private Button btnMinus;
     }
 }

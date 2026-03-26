@@ -1,3 +1,7 @@
+using System;
+using System.Data; // DataTable 사용을 위해 필수
+using System.Windows.Forms;
+
 namespace SimpleCalculator
 {
     public partial class Form1 : Form
@@ -6,43 +10,55 @@ namespace SimpleCalculator
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
+        // [과제 1 & 2 공통] 숫자 버튼(0~9) 클릭 시 호출
         private void btnNumber_Click(object sender, EventArgs e)
         {
-            // 클릭된 버튼이 어떤 숫자인지 가져오기
+            // 과제1 코딩과 테스트 완료
             Button btn = (Button)sender;
 
-            // 상단 수식 텍스트박스에 숫자 추가
+            // 사용자가 누른 숫자(String)를 수식창에 누적 (Step 1: Input)
             txtExpression.Text += btn.Text;
         }
 
-        // 2. 더하기(+) 버튼 클릭 시 수식에 기호 추가
-        private void btnPlus_Click(object sender, EventArgs e)
+        // [과제 2] 연산자 버튼(+, -, ×, ÷) 클릭 시 호출
+        private void btnOperator_Click(object sender, EventArgs e)
         {
-            // 연산자 앞뒤로 공백을 주면 나중에 계산하기 편합니다
-            txtExpression.Text += " + ";
+            // 과제2 코딩과 테스트 완료
+            Button btn = (Button)sender;
+
+            // 기호 앞뒤로 공백을 넣어 수식 구분 (Step 1: Input)
+            txtExpression.Text += " " + btn.Text + " ";
         }
 
-        // 3. 결과(=) 버튼 클릭 시 계산 수행
+        // [과제 1 & 2 통합] 결과 계산 버튼(=) 클릭 시 호출
         private void btnEqual_Click(object sender, EventArgs e)
         {
+            // 과제1, 2 코딩과 테스트 완료
             try
             {
-                // 과제 1의 핵심: 수식을 계산하여 결과창에 출력
-                // DataTable을 활용해 문자열 수식을 실제 숫자로 계산합니다 int보다 더 강력.
-                System.Data.DataTable table = new System.Data.DataTable();
-                var result = table.Compute(txtExpression.Text, "");
+                // 1. 수식 가져오기 (String)
+                string expression = txtExpression.Text;
 
-                // 하단 결과창에 출력
-                txtResult.Text = result.ToString();
+                // 2. 기호 치환 (표시용 ×, ÷를 계산용 *, /로 변경)
+                expression = expression.Replace("×", "*").Replace("÷", "/");
+
+                // 3. 변환 및 계산 (Step 2 & 3: Parsing & Process)
+                // DataTable.Compute가 내부적으로 문자열 내 숫자를 계산 가능한 수치로 변환합니다.
+                DataTable table = new DataTable();
+                var calcResult = table.Compute(expression, "");
+
+                // 4. 결과 출력 (Step 4: ToString 변환 준수)
+                // 계산된 숫자 결과를 다시 문자열(String)로 변환하여 텍스트박스에 표시
+                txtResult.Text = calcResult.ToString();
             }
             catch (Exception)
             {
+                // 잘못된 수식(예: 1++2) 입력 시 에러 처리
                 MessageBox.Show("수식을 확인해주세요.");
             }
         }
