@@ -51,6 +51,7 @@
             btnDelete = new Button();
             btnDot = new Button();
             btnSign = new Button();
+            btnParenthesis = new Button();
             SuspendLayout();
             // 
             // btn7
@@ -156,24 +157,25 @@
             // txtResult
             // 
             txtResult.BackColor = SystemColors.HighlightText;
-            txtResult.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            txtResult.Font = new Font("한컴 고딕", 13.9999981F, FontStyle.Bold, GraphicsUnit.Point, 129);
             txtResult.Location = new Point(56, 121);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(466, 31);
+            txtResult.Size = new Size(348, 44);
             txtResult.TabIndex = 10;
             // 
             // txtExpression
             // 
             txtExpression.BackColor = SystemColors.HighlightText;
-            txtExpression.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            txtExpression.Location = new Point(56, 75);
+            txtExpression.Font = new Font("한컴 고딕", 16F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            txtExpression.Location = new Point(56, 65);
             txtExpression.Name = "txtExpression";
-            txtExpression.Size = new Size(466, 31);
+            txtExpression.Size = new Size(466, 49);
             txtExpression.TabIndex = 11;
             // 
             // btnEqual
             // 
             btnEqual.BackColor = Color.FromArgb(255, 224, 192);
+            btnEqual.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnEqual.Location = new Point(410, 492);
             btnEqual.Name = "btnEqual";
             btnEqual.Size = new Size(112, 75);
@@ -185,6 +187,7 @@
             // btnPlus
             // 
             btnPlus.BackColor = Color.FromArgb(255, 224, 192);
+            btnPlus.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnPlus.Location = new Point(410, 411);
             btnPlus.Name = "btnPlus";
             btnPlus.Size = new Size(112, 75);
@@ -207,6 +210,7 @@
             // btnMulti
             // 
             btnMulti.BackColor = Color.FromArgb(255, 224, 192);
+            btnMulti.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnMulti.Location = new Point(410, 249);
             btnMulti.Name = "btnMulti";
             btnMulti.Size = new Size(112, 75);
@@ -218,6 +222,7 @@
             // btnDiv
             // 
             btnDiv.BackColor = Color.FromArgb(255, 224, 192);
+            btnDiv.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnDiv.Location = new Point(410, 168);
             btnDiv.Name = "btnDiv";
             btnDiv.Size = new Size(112, 75);
@@ -229,6 +234,7 @@
             // btnMinus
             // 
             btnMinus.BackColor = Color.FromArgb(255, 224, 192);
+            btnMinus.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnMinus.Location = new Point(410, 330);
             btnMinus.Name = "btnMinus";
             btnMinus.Size = new Size(112, 75);
@@ -240,6 +246,7 @@
             // btnCE
             // 
             btnCE.BackColor = Color.FromArgb(255, 128, 128);
+            btnCE.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnCE.Location = new Point(56, 168);
             btnCE.Name = "btnCE";
             btnCE.Size = new Size(112, 75);
@@ -251,6 +258,7 @@
             // btnClear
             // 
             btnClear.BackColor = Color.FromArgb(255, 128, 128);
+            btnClear.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnClear.Location = new Point(174, 168);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(112, 75);
@@ -262,6 +270,7 @@
             // btnDelete
             // 
             btnDelete.BackColor = Color.FromArgb(255, 128, 128);
+            btnDelete.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnDelete.Location = new Point(292, 168);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(112, 75);
@@ -290,12 +299,25 @@
             btnSign.UseVisualStyleBackColor = true;
             btnSign.Click += btnSign_Click;
             // 
+            // btnParenthesis
+            // 
+            btnParenthesis.BackColor = Color.FromArgb(255, 224, 192);
+            btnParenthesis.Font = new Font("한컴 고딕", 10F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            btnParenthesis.Location = new Point(410, 120);
+            btnParenthesis.Name = "btnParenthesis";
+            btnParenthesis.Size = new Size(112, 45);
+            btnParenthesis.TabIndex = 23;
+            btnParenthesis.Text = "(";
+            btnParenthesis.UseVisualStyleBackColor = false;
+            btnParenthesis.Click += btnParenthesis_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 192, 192);
-            ClientSize = new Size(574, 627);
+            ClientSize = new Size(552, 585);
+            Controls.Add(btnParenthesis);
             Controls.Add(btnSign);
             Controls.Add(btnDot);
             Controls.Add(btnDelete);
@@ -352,5 +374,6 @@
         private Button btnDelete;
         private Button btnDot;
         private Button btnSign;
+        private Button btnParenthesis;
     }
 }
