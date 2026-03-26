@@ -199,7 +199,7 @@
             btnMulti.Name = "btnMulti";
             btnMulti.Size = new Size(112, 50);
             btnMulti.TabIndex = 15;
-            btnMulti.Text = "X";
+            btnMulti.Text = "×";
             btnMulti.UseVisualStyleBackColor = true;
             btnMulti.Click += btnOperator_Click;
             // 
