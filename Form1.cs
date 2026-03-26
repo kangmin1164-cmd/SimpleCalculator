@@ -1,5 +1,5 @@
 using System;
-using System.Data; // DataTable 사용을 위해 필수
+using System.Data;
 using System.Windows.Forms;
 
 namespace SimpleCalculator
@@ -10,55 +10,84 @@ namespace SimpleCalculator
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        // [과제 1 & 2 공통] 숫자 버튼(0~9) 클릭 시 호출
+        // [과제 1 & 2] 숫자 버튼 클릭
         private void btnNumber_Click(object sender, EventArgs e)
         {
-            // 과제1 코딩과 테스트 완료
-            Button btn = (Button)sender;
+            // 계산이 끝난 후(=이 포함된 상태) 숫자를 누르면 새로 시작하도록 초기화
+            if (txtExpression.Text.Contains("=")) txtExpression.Clear();
 
-            // 사용자가 누른 숫자(String)를 수식창에 누적 (Step 1: Input)
+            Button btn = (Button)sender;
             txtExpression.Text += btn.Text;
         }
 
-        // [과제 2] 연산자 버튼(+, -, ×, ÷) 클릭 시 호출
+        // [과제 2] 연산자 버튼 클릭
         private void btnOperator_Click(object sender, EventArgs e)
         {
-            // 과제2 코딩과 테스트 완료
-            Button btn = (Button)sender;
+            // 계산 결과 뒤에 바로 연산자를 붙여서 이어서 계산 가능하게 처리
+            if (txtExpression.Text.Contains("="))
+            {
+                txtExpression.Text = txtResult.Text;
+            }
 
-            // 기호 앞뒤로 공백을 넣어 수식 구분 (Step 1: Input)
+            Button btn = (Button)sender;
             txtExpression.Text += " " + btn.Text + " ";
         }
 
-        // [과제 1 & 2 통합] 결과 계산 버튼(=) 클릭 시 호출
+        // [과제 3] CE: 마지막 숫자 뭉치 삭제
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            if (txtExpression.Text.Contains("=")) { btnClear_Click(null, null); return; }
+
+            string text = txtExpression.Text.TrimEnd();
+            if (string.IsNullOrEmpty(text)) return;
+            int lastSpaceIndex = text.LastIndexOf(' ');
+            if (lastSpaceIndex == -1) txtExpression.Clear();
+            else txtExpression.Text = text.Substring(0, lastSpaceIndex + 1);
+        }
+
+        // [과제 3] C: 초기화
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtExpression.Clear();
+            txtResult.Clear();
+        }
+
+        // [과제 3] Del: 한 글자 삭제
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtExpression.Text.Contains("=")) return; // 결과 도출 후엔 삭제 불가
+            if (txtExpression.Text.Length > 0)
+                txtExpression.Text = txtExpression.Text.Substring(0, txtExpression.Text.Length - 1);
+        }
+
+        // ★ 수정된 부분: 결과창과 수식창에 동시에 값 표시 ★
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            // 과제1, 2 코딩과 테스트 완료
+            if (string.IsNullOrWhiteSpace(txtExpression.Text) || txtExpression.Text.Contains("=")) return;
+
             try
             {
-                // 1. 수식 가져오기 (String)
-                string expression = txtExpression.Text;
+                string originalExpression = txtExpression.Text; // 원래 수식 보관
+                string solveExpression = originalExpression.Replace("×", "*").Replace("÷", "/");
 
-                // 2. 기호 치환 (표시용 ×, ÷를 계산용 *, /로 변경)
-                expression = expression.Replace("×", "*").Replace("÷", "/");
-
-                // 3. 변환 및 계산 (Step 2 & 3: Parsing & Process)
-                // DataTable.Compute가 내부적으로 문자열 내 숫자를 계산 가능한 수치로 변환합니다.
                 DataTable table = new DataTable();
-                var calcResult = table.Compute(expression, "");
+                var calcResult = table.Compute(solveExpression, "");
+                string resultStr = calcResult.ToString();
 
-                // 4. 결과 출력 (Step 4: ToString 변환 준수)
-                // 계산된 숫자 결과를 다시 문자열(String)로 변환하여 텍스트박스에 표시
-                txtResult.Text = calcResult.ToString();
+                // 1. 하단 결과창에는 숫자만 표시
+                txtResult.Text = resultStr;
+
+                // 2. 상단 수식창에는 "기존 수식 = 결과" 형태로 표시
+                txtExpression.Text = originalExpression + " = " + resultStr;
             }
             catch (Exception)
             {
-                // 잘못된 수식(예: 1++2) 입력 시 에러 처리
                 MessageBox.Show("수식을 확인해주세요.");
             }
         }

@@ -46,6 +46,9 @@
             btnMulti = new Button();
             btnDiv = new Button();
             btnMinus = new Button();
+            btnCE = new Button();
+            btnClear = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // btn7
@@ -152,14 +155,14 @@
             // 
             txtResult.Location = new Point(206, 101);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(348, 31);
+            txtResult.Size = new Size(466, 31);
             txtResult.TabIndex = 10;
             // 
             // txtExpression
             // 
             txtExpression.Location = new Point(206, 64);
             txtExpression.Name = "txtExpression";
-            txtExpression.Size = new Size(348, 31);
+            txtExpression.Size = new Size(466, 31);
             txtExpression.TabIndex = 11;
             // 
             // btnEqual
@@ -223,12 +226,45 @@
             btnMinus.UseVisualStyleBackColor = true;
             btnMinus.Click += btnOperator_Click;
             // 
+            // btnCE
+            // 
+            btnCE.Location = new Point(206, 133);
+            btnCE.Name = "btnCE";
+            btnCE.Size = new Size(112, 50);
+            btnCE.TabIndex = 18;
+            btnCE.Text = "CE";
+            btnCE.UseVisualStyleBackColor = true;
+            btnCE.Click += btnCE_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(324, 133);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(112, 50);
+            btnClear.TabIndex = 19;
+            btnClear.Text = "C";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(442, 133);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(112, 50);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "del";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnClear);
+            Controls.Add(btnCE);
             Controls.Add(btnMinus);
             Controls.Add(btnDiv);
             Controls.Add(btnMulti);
@@ -275,5 +311,8 @@
         private Button btnMulti;
         private Button btnDiv;
         private Button btnMinus;
+        private Button btnCE;
+        private Button btnClear;
+        private Button btnDelete;
     }
 }
